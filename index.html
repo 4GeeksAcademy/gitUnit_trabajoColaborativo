@@ -1,0 +1,401 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Maison Lumiere | Moda premium francesa para elegancia contemporanea</title>
+    <meta
+      name="description"
+      content="Descubre la nueva coleccion de Maison Lumiere: moda premium francesa con diseno minimalista, elegante y contemporaneo para hombre y mujer."
+    />
+    <meta name="robots" content="index, follow" />
+    <meta name="theme-color" content="#f5f2ed" />
+    <link rel="preconnect" href="https://images.unsplash.com" />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            colors: {
+              cream: "#f5f2ed",
+              ink: "#1f1f1f",
+              sand: "#d7cfc3",
+              stone: "#ede9e2"
+            },
+            fontFamily: {
+              serifDisplay: ["Georgia", "Times New Roman", "serif"],
+              sansBody: ["ui-sans-serif", "system-ui", "Segoe UI", "sans-serif"]
+            },
+            boxShadow: {
+              soft: "0 12px 30px rgba(15, 15, 15, 0.08)"
+            }
+          }
+        }
+      };
+    </script>
+  </head>
+  <body class="bg-cream text-ink font-sansBody antialiased">
+    <header class="sticky top-0 z-50 border-b border-black/10 bg-cream/95 backdrop-blur">
+      <nav class="mx-auto flex max-w-7xl items-center justify-between px-4 py-4 sm:px-6 lg:px-8" aria-label="Navegacion principal">
+        <a href="#" class="text-xl font-serifDisplay tracking-[0.2em] uppercase">Maison Lumiere</a>
+
+        <button
+          id="menuButton"
+          class="inline-flex items-center justify-center rounded-md p-2 text-ink transition hover:bg-black/5 lg:hidden"
+          aria-label="Abrir menu"
+          aria-expanded="false"
+          aria-controls="mobileMenu"
+        >
+          <svg class="h-6 w-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" />
+          </svg>
+        </button>
+
+        <ul class="hidden items-center gap-8 text-sm uppercase tracking-wider lg:flex">
+          <li><a href="#hombre" class="transition hover:text-black/60">Hombre</a></li>
+          <li><a href="#mujer" class="transition hover:text-black/60">Mujer</a></li>
+          <li><a href="#nueva-coleccion" class="transition hover:text-black/60">Nueva coleccion</a></li>
+          <li><a href="#accesorios" class="transition hover:text-black/60">Accesorios</a></li>
+          <li><a href="#sale" class="transition hover:text-black/60">Sale</a></li>
+        </ul>
+
+        <div class="hidden items-center gap-3 lg:flex">
+          <label for="searchDesktop" class="sr-only">Buscar productos</label>
+          <div class="flex items-center rounded-full border border-black/10 bg-white px-3 py-2">
+            <svg class="mr-2 h-4 w-4 text-black/50" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M21 21l-4.35-4.35m1.6-5.15a6.75 6.75 0 11-13.5 0 6.75 6.75 0 0113.5 0z" />
+            </svg>
+            <input
+              id="searchDesktop"
+              type="search"
+              placeholder="Buscar"
+              class="w-32 bg-transparent text-sm text-ink placeholder:text-black/40 focus:outline-none"
+              aria-label="Buscar"
+            />
+          </div>
+          <a href="#" class="rounded-full p-2 transition hover:bg-black/5" aria-label="Cuenta de usuario">
+            <svg class="h-5 w-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M15.75 6.75a3.75 3.75 0 11-7.5 0 3.75 3.75 0 017.5 0zM4.5 19.25a7.5 7.5 0 1115 0" />
+            </svg>
+          </a>
+          <a href="#" class="rounded-full p-2 transition hover:bg-black/5" aria-label="Carrito">
+            <svg class="h-5 w-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M2.25 3.75h1.5l2.4 11.4a1.5 1.5 0 001.47 1.2h9.78a1.5 1.5 0 001.47-1.2l1.2-6.15H6.15M9 20.25a.75.75 0 11-1.5 0 .75.75 0 011.5 0zm8.25 0a.75.75 0 11-1.5 0 .75.75 0 011.5 0z" />
+            </svg>
+          </a>
+        </div>
+      </nav>
+
+      <div id="mobileMenu" class="hidden border-t border-black/10 bg-cream px-4 py-4 lg:hidden">
+        <div class="mb-4 flex items-center rounded-full border border-black/10 bg-white px-3 py-2">
+          <svg class="mr-2 h-4 w-4 text-black/50" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M21 21l-4.35-4.35m1.6-5.15a6.75 6.75 0 11-13.5 0 6.75 6.75 0 0113.5 0z" />
+          </svg>
+          <label for="searchMobile" class="sr-only">Buscar productos</label>
+          <input
+            id="searchMobile"
+            type="search"
+            placeholder="Buscar"
+            class="w-full bg-transparent text-sm text-ink placeholder:text-black/40 focus:outline-none"
+            aria-label="Buscar"
+          />
+        </div>
+        <ul class="space-y-3 text-sm uppercase tracking-wider">
+          <li><a href="#hombre" class="block transition hover:text-black/60">Hombre</a></li>
+          <li><a href="#mujer" class="block transition hover:text-black/60">Mujer</a></li>
+          <li><a href="#nueva-coleccion" class="block transition hover:text-black/60">Nueva coleccion</a></li>
+          <li><a href="#accesorios" class="block transition hover:text-black/60">Accesorios</a></li>
+          <li><a href="#sale" class="block transition hover:text-black/60">Sale</a></li>
+        </ul>
+        <div class="mt-4 flex items-center gap-3">
+          <a href="#" class="rounded-full border border-black/10 p-2 transition hover:bg-black/5" aria-label="Cuenta de usuario">
+            <svg class="h-5 w-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M15.75 6.75a3.75 3.75 0 11-7.5 0 3.75 3.75 0 017.5 0zM4.5 19.25a7.5 7.5 0 1115 0" />
+            </svg>
+          </a>
+          <a href="#" class="rounded-full border border-black/10 p-2 transition hover:bg-black/5" aria-label="Carrito">
+            <svg class="h-5 w-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M2.25 3.75h1.5l2.4 11.4a1.5 1.5 0 001.47 1.2h9.78a1.5 1.5 0 001.47-1.2l1.2-6.15H6.15M9 20.25a.75.75 0 11-1.5 0 .75.75 0 011.5 0zm8.25 0a.75.75 0 11-1.5 0 .75.75 0 011.5 0z" />
+            </svg>
+          </a>
+        </div>
+      </div>
+    </header>
+
+    <main>
+      <section id="nueva-coleccion" class="relative isolate min-h-[85vh] overflow-hidden">
+        <img
+          src="https://images.unsplash.com/photo-1483985988355-763728e1935b?auto=format&fit=crop&w=1800&q=80"
+          alt="Modelo vistiendo abrigo premium en una calle parisina"
+          class="absolute inset-0 h-full w-full object-cover"
+        />
+        <div class="absolute inset-0 bg-gradient-to-r from-black/65 via-black/40 to-black/20"></div>
+        <div class="relative mx-auto flex min-h-[85vh] max-w-7xl items-end px-4 pb-14 pt-24 sm:px-6 lg:px-8 lg:pb-24">
+          <article class="max-w-2xl text-white">
+            <p class="mb-4 text-xs uppercase tracking-[0.35em] text-white/80">Paris, nouvelle saison</p>
+            <h1 class="font-serifDisplay text-4xl leading-tight sm:text-5xl lg:text-6xl">
+              Siluetas limpias para una elegancia sin esfuerzo
+            </h1>
+            <p class="mt-5 max-w-xl text-base text-white/85 sm:text-lg">
+              Descubre prendas atemporales creadas para la vida urbana contemporanea, con cortes precisos y materiales premium.
+            </p>
+            <div class="mt-8 flex flex-wrap items-center gap-4">
+              <a
+                href="#lanzamientos"
+                class="rounded-full bg-white px-7 py-3 text-sm font-medium uppercase tracking-widest text-ink transition hover:bg-stone"
+              >
+                Descubrir coleccion
+              </a>
+              <a
+                href="#best-sellers"
+                class="rounded-full border border-white/70 px-7 py-3 text-sm font-medium uppercase tracking-widest text-white transition hover:bg-white/10"
+              >
+                Comprar ahora
+              </a>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <section id="lanzamientos" class="mx-auto max-w-7xl px-4 py-16 sm:px-6 lg:px-8 lg:py-20">
+        <div class="mb-8 flex items-end justify-between gap-4">
+          <h2 class="font-serifDisplay text-3xl sm:text-4xl">Nuevos lanzamientos</h2>
+          <a href="#" class="text-sm uppercase tracking-widest text-black/70 transition hover:text-ink">Ver todo</a>
+        </div>
+
+        <div class="grid grid-cols-1 gap-6 sm:grid-cols-2 xl:grid-cols-4">
+          <article class="group overflow-hidden rounded-2xl border border-black/10 bg-white shadow-soft transition duration-300 hover:-translate-y-1 hover:shadow-xl">
+            <div class="relative overflow-hidden">
+              <img src="https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?auto=format&fit=crop&w=800&q=80" alt="Camisa premium blanca de corte relajado" class="h-80 w-full object-cover transition duration-500 group-hover:scale-105" />
+              <button class="absolute bottom-4 left-1/2 -translate-x-1/2 rounded-full bg-white/95 px-4 py-2 text-xs uppercase tracking-widest text-ink opacity-0 transition group-hover:opacity-100">Compra rapida</button>
+            </div>
+            <div class="space-y-2 px-5 py-5">
+              <h3 class="text-lg font-medium">Camisa Atelier</h3>
+              <p class="text-sm text-black/60">Camisas</p>
+              <p class="text-base font-semibold">EUR 149</p>
+            </div>
+          </article>
+
+          <article class="group overflow-hidden rounded-2xl border border-black/10 bg-white shadow-soft transition duration-300 hover:-translate-y-1 hover:shadow-xl">
+            <div class="relative overflow-hidden">
+              <img src="https://images.unsplash.com/photo-1514996937319-344454492b37?auto=format&fit=crop&w=800&q=80" alt="Abrigo largo beige de lana premium" class="h-80 w-full object-cover transition duration-500 group-hover:scale-105" />
+              <button class="absolute bottom-4 left-1/2 -translate-x-1/2 rounded-full bg-white/95 px-4 py-2 text-xs uppercase tracking-widest text-ink opacity-0 transition group-hover:opacity-100">Compra rapida</button>
+            </div>
+            <div class="space-y-2 px-5 py-5">
+              <h3 class="text-lg font-medium">Abrigo Rive Gauche</h3>
+              <p class="text-sm text-black/60">Abrigos</p>
+              <p class="text-base font-semibold">EUR 329</p>
+            </div>
+          </article>
+
+          <article class="group overflow-hidden rounded-2xl border border-black/10 bg-white shadow-soft transition duration-300 hover:-translate-y-1 hover:shadow-xl">
+            <div class="relative overflow-hidden">
+              <img src="https://images.unsplash.com/photo-1484516758160-69878111a911?auto=format&fit=crop&w=800&q=80" alt="Pantalon sastre negro de fit recto" class="h-80 w-full object-cover transition duration-500 group-hover:scale-105" />
+              <button class="absolute bottom-4 left-1/2 -translate-x-1/2 rounded-full bg-white/95 px-4 py-2 text-xs uppercase tracking-widest text-ink opacity-0 transition group-hover:opacity-100">Compra rapida</button>
+            </div>
+            <div class="space-y-2 px-5 py-5">
+              <h3 class="text-lg font-medium">Pantalon Palais</h3>
+              <p class="text-sm text-black/60">Pantalones</p>
+              <p class="text-base font-semibold">EUR 169</p>
+            </div>
+          </article>
+
+          <article class="group overflow-hidden rounded-2xl border border-black/10 bg-white shadow-soft transition duration-300 hover:-translate-y-1 hover:shadow-xl">
+            <div class="relative overflow-hidden">
+              <img src="https://images.unsplash.com/photo-1543076447-215ad9ba6923?auto=format&fit=crop&w=800&q=80" alt="Bolso de cuero negro minimalista" class="h-80 w-full object-cover transition duration-500 group-hover:scale-105" />
+              <button class="absolute bottom-4 left-1/2 -translate-x-1/2 rounded-full bg-white/95 px-4 py-2 text-xs uppercase tracking-widest text-ink opacity-0 transition group-hover:opacity-100">Compra rapida</button>
+            </div>
+            <div class="space-y-2 px-5 py-5">
+              <h3 class="text-lg font-medium">Bolso Marais</h3>
+              <p class="text-sm text-black/60">Accesorios</p>
+              <p class="text-base font-semibold">EUR 229</p>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <section id="best-sellers" class="mx-auto max-w-7xl px-4 py-8 sm:px-6 lg:px-8 lg:py-12">
+        <div class="mb-8 flex items-end justify-between gap-4">
+          <h2 class="font-serifDisplay text-3xl sm:text-4xl">Mas vendidos</h2>
+          <a href="#" class="text-sm uppercase tracking-widest text-black/70 transition hover:text-ink">Ver todo</a>
+        </div>
+
+        <div class="grid grid-cols-1 gap-6 sm:grid-cols-2 xl:grid-cols-4">
+          <article class="group overflow-hidden rounded-2xl border border-black/10 bg-white shadow-soft transition duration-300 hover:-translate-y-1 hover:shadow-xl">
+            <div class="relative overflow-hidden">
+              <img src="https://images.unsplash.com/photo-1503342217505-b0a15ec3261c?auto=format&fit=crop&w=800&q=80" alt="Vestido negro elegante de linea minimalista" class="h-80 w-full object-cover transition duration-500 group-hover:scale-105" />
+              <button class="absolute bottom-4 left-1/2 -translate-x-1/2 rounded-full bg-white/95 px-4 py-2 text-xs uppercase tracking-widest text-ink opacity-0 transition group-hover:opacity-100">Compra rapida</button>
+            </div>
+            <div class="space-y-2 px-5 py-5">
+              <h3 class="text-lg font-medium">Vestido Noire</h3>
+              <p class="text-sm text-black/60">Mujer</p>
+              <p class="text-base font-semibold">EUR 189</p>
+            </div>
+          </article>
+
+          <article class="group overflow-hidden rounded-2xl border border-black/10 bg-white shadow-soft transition duration-300 hover:-translate-y-1 hover:shadow-xl">
+            <div class="relative overflow-hidden">
+              <img src="https://images.unsplash.com/photo-1512436991641-6745cdb1723f?auto=format&fit=crop&w=800&q=80" alt="Chaqueta estructurada gris para hombre" class="h-80 w-full object-cover transition duration-500 group-hover:scale-105" />
+              <button class="absolute bottom-4 left-1/2 -translate-x-1/2 rounded-full bg-white/95 px-4 py-2 text-xs uppercase tracking-widest text-ink opacity-0 transition group-hover:opacity-100">Compra rapida</button>
+            </div>
+            <div class="space-y-2 px-5 py-5">
+              <h3 class="text-lg font-medium">Blazer Rivoli</h3>
+              <p class="text-sm text-black/60">Hombre</p>
+              <p class="text-base font-semibold">EUR 279</p>
+            </div>
+          </article>
+
+          <article class="group overflow-hidden rounded-2xl border border-black/10 bg-white shadow-soft transition duration-300 hover:-translate-y-1 hover:shadow-xl">
+            <div class="relative overflow-hidden">
+              <img src="https://images.unsplash.com/photo-1460353581641-37baddab0fa2?auto=format&fit=crop&w=800&q=80" alt="Zapatos de cuero marron de estilo clasico" class="h-80 w-full object-cover transition duration-500 group-hover:scale-105" />
+              <button class="absolute bottom-4 left-1/2 -translate-x-1/2 rounded-full bg-white/95 px-4 py-2 text-xs uppercase tracking-widest text-ink opacity-0 transition group-hover:opacity-100">Compra rapida</button>
+            </div>
+            <div class="space-y-2 px-5 py-5">
+              <h3 class="text-lg font-medium">Oxford Signature</h3>
+              <p class="text-sm text-black/60">Calzado</p>
+              <p class="text-base font-semibold">EUR 239</p>
+            </div>
+          </article>
+
+          <article class="group overflow-hidden rounded-2xl border border-black/10 bg-white shadow-soft transition duration-300 hover:-translate-y-1 hover:shadow-xl">
+            <div class="relative overflow-hidden">
+              <img src="https://images.unsplash.com/photo-1525507119028-ed4c629a60a3?auto=format&fit=crop&w=800&q=80" alt="Gafas de sol modernas con montura fina" class="h-80 w-full object-cover transition duration-500 group-hover:scale-105" />
+              <button class="absolute bottom-4 left-1/2 -translate-x-1/2 rounded-full bg-white/95 px-4 py-2 text-xs uppercase tracking-widest text-ink opacity-0 transition group-hover:opacity-100">Compra rapida</button>
+            </div>
+            <div class="space-y-2 px-5 py-5">
+              <h3 class="text-lg font-medium">Gafas Lumiere</h3>
+              <p class="text-sm text-black/60">Accesorios</p>
+              <p class="text-base font-semibold">EUR 129</p>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <section class="mx-auto mt-12 max-w-7xl px-4 pb-16 sm:px-6 lg:px-8 lg:pb-20">
+        <div class="grid overflow-hidden rounded-3xl border border-black/10 bg-white shadow-soft lg:grid-cols-2">
+          <img
+            src="https://images.unsplash.com/photo-1529139574466-a303027c1d8b?auto=format&fit=crop&w=1400&q=80"
+            alt="Editorial de moda premium en un estudio minimalista"
+            class="h-80 w-full object-cover sm:h-[28rem]"
+          />
+          <article class="flex flex-col justify-center px-6 py-10 sm:px-10 lg:px-12">
+            <p class="text-xs uppercase tracking-[0.3em] text-black/50">Nuestra esencia</p>
+            <h2 class="mt-4 font-serifDisplay text-3xl leading-tight sm:text-4xl">
+              Moda disenada para la elegancia contemporanea
+            </h2>
+            <p class="mt-5 max-w-lg text-base leading-relaxed text-black/70">
+              En Maison Lumiere combinamos artesania francesa, patronaje preciso y materiales nobles para construir un guardarropa duradero y sofisticado.
+            </p>
+            <a href="#" class="mt-8 inline-flex w-fit rounded-full border border-ink px-6 py-3 text-xs uppercase tracking-widest transition hover:bg-ink hover:text-white">
+              Conocer la marca
+            </a>
+          </article>
+        </div>
+      </section>
+
+      <section class="border-y border-black/10 bg-stone/60">
+        <div class="mx-auto grid max-w-7xl gap-8 px-4 py-14 sm:px-6 lg:grid-cols-2 lg:items-center lg:px-8">
+          <div>
+            <h2 class="font-serifDisplay text-3xl sm:text-4xl">Unete a nuestro universo</h2>
+            <p class="mt-3 max-w-xl text-black/70">
+              Recibe lanzamientos exclusivos, acceso anticipado a colecciones y contenido editorial inspirado en Paris.
+            </p>
+          </div>
+          <form class="flex w-full flex-col gap-3 sm:flex-row" action="#" method="post">
+            <label for="newsletterEmail" class="sr-only">Correo electronico</label>
+            <input
+              id="newsletterEmail"
+              name="newsletterEmail"
+              type="email"
+              required
+              placeholder="Tu correo electronico"
+              class="w-full rounded-full border border-black/15 bg-white px-5 py-3 text-sm placeholder:text-black/40 focus:border-ink focus:outline-none"
+            />
+            <button
+              type="submit"
+              class="rounded-full bg-ink px-7 py-3 text-sm uppercase tracking-widest text-white transition hover:bg-black"
+            >
+              Suscribirse
+            </button>
+          </form>
+        </div>
+      </section>
+    </main>
+
+    <footer class="bg-ink text-white">
+      <div class="mx-auto max-w-7xl px-4 py-14 sm:px-6 lg:px-8">
+        <div class="grid gap-10 md:grid-cols-2 lg:grid-cols-4">
+          <section>
+            <h2 class="font-serifDisplay text-2xl tracking-[0.12em] uppercase">Maison Lumiere</h2>
+            <p class="mt-4 max-w-xs text-sm text-white/70">
+              Maison de moda premium inspirada en la sofisticacion de Paris y el minimalismo contemporaneo.
+            </p>
+          </section>
+
+          <section>
+            <h3 class="text-sm uppercase tracking-[0.2em] text-white/70">Categorias</h3>
+            <ul class="mt-4 space-y-2 text-sm">
+              <li><a href="#" class="transition hover:text-sand">Calzado</a></li>
+              <li><a href="#" class="transition hover:text-sand">Camisas</a></li>
+              <li><a href="#" class="transition hover:text-sand">Pantalones</a></li>
+              <li><a href="#" class="transition hover:text-sand">Accesorios</a></li>
+            </ul>
+          </section>
+
+          <section>
+            <h3 class="text-sm uppercase tracking-[0.2em] text-white/70">Legal</h3>
+            <ul class="mt-4 space-y-2 text-sm">
+              <li><a href="#" class="transition hover:text-sand">Terminos y condiciones</a></li>
+              <li><a href="#" class="transition hover:text-sand">Politica de privacidad</a></li>
+              <li><a href="#" class="transition hover:text-sand">Sobre la marca</a></li>
+            </ul>
+          </section>
+
+          <section>
+            <h3 class="text-sm uppercase tracking-[0.2em] text-white/70">Contacto</h3>
+            <ul class="mt-4 space-y-2 text-sm text-white/90">
+              <li>Email: contact@maisonlumiere.fr</li>
+              <li>Telefono: +33 1 40 12 67 98</li>
+            </ul>
+            <div class="mt-5 flex items-center gap-3" aria-label="Redes sociales">
+              <a href="#" class="rounded-full border border-white/30 p-2 transition hover:border-sand hover:text-sand" aria-label="Instagram">
+                <svg class="h-4 w-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                  <rect x="3.75" y="3.75" width="16.5" height="16.5" rx="4.5" stroke-width="1.5" />
+                  <circle cx="12" cy="12" r="3.75" stroke-width="1.5" />
+                  <circle cx="17.25" cy="6.75" r=".75" fill="currentColor" stroke="none" />
+                </svg>
+              </a>
+              <a href="#" class="rounded-full border border-white/30 p-2 transition hover:border-sand hover:text-sand" aria-label="Facebook">
+                <svg class="h-4 w-4" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                  <path d="M13.5 8.25h2.25V5.25H13.5a3.75 3.75 0 00-3.75 3.75v1.5H7.5v3h2.25v5.25h3V13.5h2.25l.75-3h-3V9a.75.75 0 01.75-.75z" />
+                </svg>
+              </a>
+              <a href="#" class="rounded-full border border-white/30 p-2 transition hover:border-sand hover:text-sand" aria-label="Pinterest">
+                <svg class="h-4 w-4" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                  <path d="M12 3.75a8.25 8.25 0 00-2.9 15.97c-.04-1.36 0-2.99.33-4.41l1-4.19s-.25-.5-.25-1.23c0-1.15.67-2.01 1.5-2.01.71 0 1.05.53 1.05 1.17 0 .71-.45 1.77-.68 2.75-.2.82.41 1.49 1.22 1.49 1.47 0 2.59-1.55 2.59-3.79 0-1.98-1.42-3.37-3.45-3.37-2.35 0-3.73 1.76-3.73 3.58 0 .71.27 1.47.61 1.88.07.08.08.15.06.24l-.24.98c-.04.16-.12.19-.28.11-1.03-.48-1.67-2-1.67-3.22 0-2.62 1.9-5.03 5.48-5.03 2.88 0 5.12 2.05 5.12 4.8 0 2.87-1.81 5.17-4.32 5.17-.84 0-1.63-.44-1.9-.96l-.52 1.97c-.19.73-.7 1.64-1.04 2.2A8.25 8.25 0 1012 3.75z" />
+                </svg>
+              </a>
+            </div>
+          </section>
+        </div>
+
+        <div class="mt-12 border-t border-white/20 pt-6">
+          <p class="text-center text-xs uppercase tracking-[0.18em] text-white/60">
+            Copyright 2026 Maison Lumiere. Todos los derechos reservados.
+          </p>
+        </div>
+      </div>
+    </footer>
+
+    <script>
+      const menuButton = document.getElementById("menuButton");
+      const mobileMenu = document.getElementById("mobileMenu");
+
+      menuButton.addEventListener("click", function () {
+        const expanded = menuButton.getAttribute("aria-expanded") === "true";
+        menuButton.setAttribute("aria-expanded", String(!expanded));
+        mobileMenu.classList.toggle("hidden");
+      });
+    </script>
+  </body>
+</html>
