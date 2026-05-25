@@ -153,7 +153,7 @@
                 Descubrir coleccion
               </a>
               <a
-                href="#best-sellers"
+                href="#catalogo"
                 class="rounded-full border border-white/70 px-7 py-3 text-sm font-medium uppercase tracking-widest text-white transition hover:bg-white/10"
               >
                 Comprar ahora
@@ -220,61 +220,385 @@
         </div>
       </section>
 
-      <section id="best-sellers" class="mx-auto max-w-7xl px-4 py-8 sm:px-6 lg:px-8 lg:py-12">
+      <section id="catalogo" class="mx-auto max-w-7xl px-4 py-8 sm:px-6 lg:px-8 lg:py-12" aria-labelledby="catalogo-heading">
+        <!-- Breadcrumb -->
+        <nav aria-label="Migas de pan" class="mb-6">
+          <ol class="flex items-center gap-2 text-sm text-black/60" role="list">
+            <li><a href="#" class="transition hover:text-ink">Inicio</a></li>
+            <li aria-hidden="true" class="text-black/30">/</li>
+            <li><span aria-current="page" class="text-ink font-medium">Catalogo</span></li>
+          </ol>
+        </nav>
+
         <div class="mb-8 flex items-end justify-between gap-4">
-          <h2 class="font-serifDisplay text-3xl sm:text-4xl">Mas vendidos</h2>
-          <a href="#" class="text-sm uppercase tracking-widest text-black/70 transition hover:text-ink">Ver todo</a>
+          <h2 id="catalogo-heading" class="font-serifDisplay text-3xl sm:text-4xl">Catalogo</h2>
         </div>
 
-        <div class="grid grid-cols-1 gap-6 sm:grid-cols-2 xl:grid-cols-4">
-          <article class="group overflow-hidden rounded-2xl border border-black/10 bg-white shadow-soft transition duration-300 hover:-translate-y-1 hover:shadow-xl">
-            <div class="relative overflow-hidden">
-              <img src="imagenes/imagen5.png" alt="Vestido negro elegante de linea minimalista" class="h-80 w-full object-cover transition duration-500 group-hover:scale-105" />
-              <button class="absolute bottom-4 left-1/2 -translate-x-1/2 rounded-full bg-white/95 px-4 py-2 text-xs uppercase tracking-widest text-ink opacity-0 transition group-hover:opacity-100">Compra rapida</button>
-            </div>
-            <div class="space-y-2 px-5 py-5">
-              <h3 class="text-lg font-medium">Vestido Noire</h3>
-              <p class="text-sm text-black/60">Mujer</p>
-              <p class="text-base font-semibold">EUR 189</p>
-            </div>
+        <!-- Filter bar -->
+        <div class="mb-8 flex flex-col gap-4 sm:flex-row sm:items-center" role="search" aria-label="Filtros de productos">
+          <div class="flex flex-col gap-1 sm:min-w-[180px]">
+            <label for="filter-category" class="text-xs uppercase tracking-widest text-black/60">Categoria</label>
+            <select
+              id="filter-category"
+              class="rounded-full border border-black/15 bg-white px-4 py-2.5 text-sm text-ink focus:border-ink focus:outline-none"
+              aria-label="Filtrar por categoria"
+            >
+              <option value="all">Todas las categorias</option>
+              <option value="camisas">Camisas</option>
+              <option value="abrigos">Abrigos</option>
+              <option value="pantalones">Pantalones</option>
+              <option value="vestidos">Vestidos</option>
+              <option value="calzado">Calzado</option>
+              <option value="accesorios">Accesorios</option>
+            </select>
+          </div>
+          <div class="flex flex-col gap-1 sm:min-w-[180px]">
+            <label for="filter-size" class="text-xs uppercase tracking-widest text-black/60">Talla</label>
+            <select
+              id="filter-size"
+              class="rounded-full border border-black/15 bg-white px-4 py-2.5 text-sm text-ink focus:border-ink focus:outline-none"
+              aria-label="Filtrar por talla"
+            >
+              <option value="all">Todas las tallas</option>
+              <option value="xs">XS</option>
+              <option value="s">S</option>
+              <option value="m">M</option>
+              <option value="l">L</option>
+              <option value="xl">XL</option>
+            </select>
+          </div>
+          <p class="mt-auto text-sm text-black/50" aria-live="polite" aria-atomic="true" id="filter-results-count">Mostrando 20 productos</p>
+        </div>
+
+        <!-- Product grid -->
+        <div
+          id="catalog-grid"
+          class="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4"
+          role="list"
+          aria-label="Lista de productos del catalogo"
+        >
+          <article class="group overflow-hidden rounded-2xl border border-black/10 bg-white shadow-soft transition duration-300 hover:-translate-y-1 hover:shadow-xl" role="listitem" data-category="vestidos" data-sizes="xs,s,m,l">
+            <a href="#" class="block" aria-label="Ver detalle de Vestido Noire, EUR 189">
+              <div class="relative aspect-[4/5] overflow-hidden">
+                <img src="imagenes/imagen5.png" alt="" class="h-full w-full object-cover transition duration-500 group-hover:scale-105" loading="lazy" />
+                <span class="absolute bottom-4 left-1/2 -translate-x-1/2 rounded-full bg-white/95 px-4 py-2 text-xs uppercase tracking-widest text-ink opacity-0 transition group-hover:opacity-100" aria-hidden="true">Ver producto</span>
+              </div>
+              <div class="space-y-2 px-5 py-5">
+                <h3 class="text-lg font-medium">Vestido Noire</h3>
+                <p class="text-sm text-black/60">Vestido midi de linea minimalista</p>
+                <p class="text-base font-semibold">EUR 189</p>
+              </div>
+            </a>
           </article>
 
-          <article class="group overflow-hidden rounded-2xl border border-black/10 bg-white shadow-soft transition duration-300 hover:-translate-y-1 hover:shadow-xl">
-            <div class="relative overflow-hidden">
-              <img src="imagenes/imagen6.png" alt="Chaqueta estructurada gris para hombre" class="h-80 w-full object-cover transition duration-500 group-hover:scale-105" />
-              <button class="absolute bottom-4 left-1/2 -translate-x-1/2 rounded-full bg-white/95 px-4 py-2 text-xs uppercase tracking-widest text-ink opacity-0 transition group-hover:opacity-100">Compra rapida</button>
-            </div>
-            <div class="space-y-2 px-5 py-5">
-              <h3 class="text-lg font-medium">Blazer Rivoli</h3>
-              <p class="text-sm text-black/60">Hombre</p>
-              <p class="text-base font-semibold">EUR 279</p>
-            </div>
+          <article class="group overflow-hidden rounded-2xl border border-black/10 bg-white shadow-soft transition duration-300 hover:-translate-y-1 hover:shadow-xl" role="listitem" data-category="abrigos" data-sizes="s,m,l,xl">
+            <a href="#" class="block" aria-label="Ver detalle de Blazer Rivoli, EUR 279">
+              <div class="relative aspect-[4/5] overflow-hidden">
+                <img src="imagenes/imagen6.png" alt="" class="h-full w-full object-cover transition duration-500 group-hover:scale-105" loading="lazy" />
+                <span class="absolute bottom-4 left-1/2 -translate-x-1/2 rounded-full bg-white/95 px-4 py-2 text-xs uppercase tracking-widest text-ink opacity-0 transition group-hover:opacity-100" aria-hidden="true">Ver producto</span>
+              </div>
+              <div class="space-y-2 px-5 py-5">
+                <h3 class="text-lg font-medium">Blazer Rivoli</h3>
+                <p class="text-sm text-black/60">Chaqueta estructurada para hombre</p>
+                <p class="text-base font-semibold">EUR 279</p>
+              </div>
+            </a>
           </article>
 
-          <article class="group overflow-hidden rounded-2xl border border-black/10 bg-white shadow-soft transition duration-300 hover:-translate-y-1 hover:shadow-xl">
-            <div class="relative overflow-hidden">
-              <img src="imagenes/imagen7.png" alt="Zapatos de cuero marron de estilo clasico" class="h-80 w-full object-cover transition duration-500 group-hover:scale-105" />
-              <button class="absolute bottom-4 left-1/2 -translate-x-1/2 rounded-full bg-white/95 px-4 py-2 text-xs uppercase tracking-widest text-ink opacity-0 transition group-hover:opacity-100">Compra rapida</button>
-            </div>
-            <div class="space-y-2 px-5 py-5">
-              <h3 class="text-lg font-medium">Oxford Signature</h3>
-              <p class="text-sm text-black/60">Calzado</p>
-              <p class="text-base font-semibold">EUR 239</p>
-            </div>
+          <article class="group overflow-hidden rounded-2xl border border-black/10 bg-white shadow-soft transition duration-300 hover:-translate-y-1 hover:shadow-xl" role="listitem" data-category="calzado" data-sizes="s,m,l,xl">
+            <a href="#" class="block" aria-label="Ver detalle de Oxford Signature, EUR 239">
+              <div class="relative aspect-[4/5] overflow-hidden">
+                <img src="imagenes/imagen7.png" alt="" class="h-full w-full object-cover transition duration-500 group-hover:scale-105" loading="lazy" />
+                <span class="absolute bottom-4 left-1/2 -translate-x-1/2 rounded-full bg-white/95 px-4 py-2 text-xs uppercase tracking-widest text-ink opacity-0 transition group-hover:opacity-100" aria-hidden="true">Ver producto</span>
+              </div>
+              <div class="space-y-2 px-5 py-5">
+                <h3 class="text-lg font-medium">Oxford Signature</h3>
+                <p class="text-sm text-black/60">Zapatos de cuero estilo clasico</p>
+                <p class="text-base font-semibold">EUR 239</p>
+              </div>
+            </a>
           </article>
 
-          <article class="group overflow-hidden rounded-2xl border border-black/10 bg-white shadow-soft transition duration-300 hover:-translate-y-1 hover:shadow-xl">
-            <div class="relative overflow-hidden">
-              <img src="imagenes/imagen8.png" alt="Gafas de sol modernas con montura fina" class="h-80 w-full object-cover transition duration-500 group-hover:scale-105" />
-              <button class="absolute bottom-4 left-1/2 -translate-x-1/2 rounded-full bg-white/95 px-4 py-2 text-xs uppercase tracking-widest text-ink opacity-0 transition group-hover:opacity-100">Compra rapida</button>
-            </div>
-            <div class="space-y-2 px-5 py-5">
-              <h3 class="text-lg font-medium">Gafas Lumiere</h3>
-              <p class="text-sm text-black/60">Accesorios</p>
-              <p class="text-base font-semibold">EUR 129</p>
-            </div>
+          <article class="group overflow-hidden rounded-2xl border border-black/10 bg-white shadow-soft transition duration-300 hover:-translate-y-1 hover:shadow-xl" role="listitem" data-category="accesorios" data-sizes="xs,s,m,l,xl">
+            <a href="#" class="block" aria-label="Ver detalle de Gafas Lumiere, EUR 129">
+              <div class="relative aspect-[4/5] overflow-hidden">
+                <img src="imagenes/imagen8.png" alt="" class="h-full w-full object-cover transition duration-500 group-hover:scale-105" loading="lazy" />
+                <span class="absolute bottom-4 left-1/2 -translate-x-1/2 rounded-full bg-white/95 px-4 py-2 text-xs uppercase tracking-widest text-ink opacity-0 transition group-hover:opacity-100" aria-hidden="true">Ver producto</span>
+              </div>
+              <div class="space-y-2 px-5 py-5">
+                <h3 class="text-lg font-medium">Gafas Lumiere</h3>
+                <p class="text-sm text-black/60">Montura fina estilo moderno</p>
+                <p class="text-base font-semibold">EUR 129</p>
+              </div>
+            </a>
+          </article>
+
+          <article class="group overflow-hidden rounded-2xl border border-black/10 bg-white shadow-soft transition duration-300 hover:-translate-y-1 hover:shadow-xl" role="listitem" data-category="camisas" data-sizes="xs,s,m,l,xl">
+            <a href="#" class="block" aria-label="Ver detalle de Camisa Atelier, EUR 149">
+              <div class="relative aspect-[4/5] overflow-hidden">
+                <img src="imagenes/imagen1.png" alt="" class="h-full w-full object-cover transition duration-500 group-hover:scale-105" loading="lazy" />
+                <span class="absolute bottom-4 left-1/2 -translate-x-1/2 rounded-full bg-white/95 px-4 py-2 text-xs uppercase tracking-widest text-ink opacity-0 transition group-hover:opacity-100" aria-hidden="true">Ver producto</span>
+              </div>
+              <div class="space-y-2 px-5 py-5">
+                <h3 class="text-lg font-medium">Camisa Atelier</h3>
+                <p class="text-sm text-black/60">Camisa premium de corte relajado</p>
+                <p class="text-base font-semibold">EUR 149</p>
+              </div>
+            </a>
+          </article>
+
+          <article class="group overflow-hidden rounded-2xl border border-black/10 bg-white shadow-soft transition duration-300 hover:-translate-y-1 hover:shadow-xl" role="listitem" data-category="abrigos" data-sizes="s,m,l,xl">
+            <a href="#" class="block" aria-label="Ver detalle de Abrigo Rive Gauche, EUR 329">
+              <div class="relative aspect-[4/5] overflow-hidden">
+                <img src="imagenes/imagen2.png" alt="" class="h-full w-full object-cover transition duration-500 group-hover:scale-105" loading="lazy" />
+                <span class="absolute bottom-4 left-1/2 -translate-x-1/2 rounded-full bg-white/95 px-4 py-2 text-xs uppercase tracking-widest text-ink opacity-0 transition group-hover:opacity-100" aria-hidden="true">Ver producto</span>
+              </div>
+              <div class="space-y-2 px-5 py-5">
+                <h3 class="text-lg font-medium">Abrigo Rive Gauche</h3>
+                <p class="text-sm text-black/60">Abrigo largo de lana premium</p>
+                <p class="text-base font-semibold">EUR 329</p>
+              </div>
+            </a>
+          </article>
+
+          <article class="group overflow-hidden rounded-2xl border border-black/10 bg-white shadow-soft transition duration-300 hover:-translate-y-1 hover:shadow-xl" role="listitem" data-category="pantalones" data-sizes="xs,s,m,l,xl">
+            <a href="#" class="block" aria-label="Ver detalle de Pantalon Palais, EUR 169">
+              <div class="relative aspect-[4/5] overflow-hidden">
+                <img src="imagenes/imagen3.png" alt="" class="h-full w-full object-cover transition duration-500 group-hover:scale-105" loading="lazy" />
+                <span class="absolute bottom-4 left-1/2 -translate-x-1/2 rounded-full bg-white/95 px-4 py-2 text-xs uppercase tracking-widest text-ink opacity-0 transition group-hover:opacity-100" aria-hidden="true">Ver producto</span>
+              </div>
+              <div class="space-y-2 px-5 py-5">
+                <h3 class="text-lg font-medium">Pantalon Palais</h3>
+                <p class="text-sm text-black/60">Pantalon sastre de fit recto</p>
+                <p class="text-base font-semibold">EUR 169</p>
+              </div>
+            </a>
+          </article>
+
+          <article class="group overflow-hidden rounded-2xl border border-black/10 bg-white shadow-soft transition duration-300 hover:-translate-y-1 hover:shadow-xl" role="listitem" data-category="accesorios" data-sizes="xs,s,m,l,xl">
+            <a href="#" class="block" aria-label="Ver detalle de Bolso Marais, EUR 229">
+              <div class="relative aspect-[4/5] overflow-hidden">
+                <img src="imagenes/imagen4.png" alt="" class="h-full w-full object-cover transition duration-500 group-hover:scale-105" loading="lazy" />
+                <span class="absolute bottom-4 left-1/2 -translate-x-1/2 rounded-full bg-white/95 px-4 py-2 text-xs uppercase tracking-widest text-ink opacity-0 transition group-hover:opacity-100" aria-hidden="true">Ver producto</span>
+              </div>
+              <div class="space-y-2 px-5 py-5">
+                <h3 class="text-lg font-medium">Bolso Marais</h3>
+                <p class="text-sm text-black/60">Bolso de cuero negro minimalista</p>
+                <p class="text-base font-semibold">EUR 229</p>
+              </div>
+            </a>
+          </article>
+
+          <article class="group overflow-hidden rounded-2xl border border-black/10 bg-white shadow-soft transition duration-300 hover:-translate-y-1 hover:shadow-xl" role="listitem" data-category="vestidos" data-sizes="xs,s,m,l">
+            <a href="#" class="block" aria-label="Ver detalle de Vestido Sorbonne, EUR 219">
+              <div class="relative aspect-[4/5] overflow-hidden">
+                <img src="imagenes/imagen5.png" alt="" class="h-full w-full object-cover transition duration-500 group-hover:scale-105" loading="lazy" />
+                <span class="absolute bottom-4 left-1/2 -translate-x-1/2 rounded-full bg-white/95 px-4 py-2 text-xs uppercase tracking-widest text-ink opacity-0 transition group-hover:opacity-100" aria-hidden="true">Ver producto</span>
+              </div>
+              <div class="space-y-2 px-5 py-5">
+                <h3 class="text-lg font-medium">Vestido Sorbonne</h3>
+                <p class="text-sm text-black/60">Vestido largo con caida fluida</p>
+                <p class="text-base font-semibold">EUR 219</p>
+              </div>
+            </a>
+          </article>
+
+          <article class="group overflow-hidden rounded-2xl border border-black/10 bg-white shadow-soft transition duration-300 hover:-translate-y-1 hover:shadow-xl" role="listitem" data-category="camisas" data-sizes="s,m,l,xl">
+            <a href="#" class="block" aria-label="Ver detalle de Camisa Montmartre, EUR 139">
+              <div class="relative aspect-[4/5] overflow-hidden">
+                <img src="imagenes/imagen1.png" alt="" class="h-full w-full object-cover transition duration-500 group-hover:scale-105" loading="lazy" />
+                <span class="absolute bottom-4 left-1/2 -translate-x-1/2 rounded-full bg-white/95 px-4 py-2 text-xs uppercase tracking-widest text-ink opacity-0 transition group-hover:opacity-100" aria-hidden="true">Ver producto</span>
+              </div>
+              <div class="space-y-2 px-5 py-5">
+                <h3 class="text-lg font-medium">Camisa Montmartre</h3>
+                <p class="text-sm text-black/60">Camisa oversize de algodon organico</p>
+                <p class="text-base font-semibold">EUR 139</p>
+              </div>
+            </a>
+          </article>
+
+          <article class="group overflow-hidden rounded-2xl border border-black/10 bg-white shadow-soft transition duration-300 hover:-translate-y-1 hover:shadow-xl" role="listitem" data-category="pantalones" data-sizes="xs,s,m,l">
+            <a href="#" class="block" aria-label="Ver detalle de Pantalon Tuileries, EUR 189">
+              <div class="relative aspect-[4/5] overflow-hidden">
+                <img src="imagenes/imagen3.png" alt="" class="h-full w-full object-cover transition duration-500 group-hover:scale-105" loading="lazy" />
+                <span class="absolute bottom-4 left-1/2 -translate-x-1/2 rounded-full bg-white/95 px-4 py-2 text-xs uppercase tracking-widest text-ink opacity-0 transition group-hover:opacity-100" aria-hidden="true">Ver producto</span>
+              </div>
+              <div class="space-y-2 px-5 py-5">
+                <h3 class="text-lg font-medium">Pantalon Tuileries</h3>
+                <p class="text-sm text-black/60">Pantalon wide-leg de tiro alto</p>
+                <p class="text-base font-semibold">EUR 189</p>
+              </div>
+            </a>
+          </article>
+
+          <article class="group overflow-hidden rounded-2xl border border-black/10 bg-white shadow-soft transition duration-300 hover:-translate-y-1 hover:shadow-xl" role="listitem" data-category="abrigos" data-sizes="s,m,l,xl">
+            <a href="#" class="block" aria-label="Ver detalle de Trench Bastille, EUR 359">
+              <div class="relative aspect-[4/5] overflow-hidden">
+                <img src="imagenes/imagen2.png" alt="" class="h-full w-full object-cover transition duration-500 group-hover:scale-105" loading="lazy" />
+                <span class="absolute bottom-4 left-1/2 -translate-x-1/2 rounded-full bg-white/95 px-4 py-2 text-xs uppercase tracking-widest text-ink opacity-0 transition group-hover:opacity-100" aria-hidden="true">Ver producto</span>
+              </div>
+              <div class="space-y-2 px-5 py-5">
+                <h3 class="text-lg font-medium">Trench Bastille</h3>
+                <p class="text-sm text-black/60">Trench coat impermeable con cinturon</p>
+                <p class="text-base font-semibold">EUR 359</p>
+              </div>
+            </a>
+          </article>
+
+          <article class="group overflow-hidden rounded-2xl border border-black/10 bg-white shadow-soft transition duration-300 hover:-translate-y-1 hover:shadow-xl" role="listitem" data-category="calzado" data-sizes="s,m,l">
+            <a href="#" class="block" aria-label="Ver detalle de Botin Saint-Germain, EUR 269">
+              <div class="relative aspect-[4/5] overflow-hidden">
+                <img src="imagenes/imagen7.png" alt="" class="h-full w-full object-cover transition duration-500 group-hover:scale-105" loading="lazy" />
+                <span class="absolute bottom-4 left-1/2 -translate-x-1/2 rounded-full bg-white/95 px-4 py-2 text-xs uppercase tracking-widest text-ink opacity-0 transition group-hover:opacity-100" aria-hidden="true">Ver producto</span>
+              </div>
+              <div class="space-y-2 px-5 py-5">
+                <h3 class="text-lg font-medium">Botin Saint-Germain</h3>
+                <p class="text-sm text-black/60">Botin chelsea de cuero liso</p>
+                <p class="text-base font-semibold">EUR 269</p>
+              </div>
+            </a>
+          </article>
+
+          <article class="group overflow-hidden rounded-2xl border border-black/10 bg-white shadow-soft transition duration-300 hover:-translate-y-1 hover:shadow-xl" role="listitem" data-category="accesorios" data-sizes="xs,s,m,l,xl">
+            <a href="#" class="block" aria-label="Ver detalle de Foulard Opera, EUR 89">
+              <div class="relative aspect-[4/5] overflow-hidden">
+                <img src="imagenes/imagen8.png" alt="" class="h-full w-full object-cover transition duration-500 group-hover:scale-105" loading="lazy" />
+                <span class="absolute bottom-4 left-1/2 -translate-x-1/2 rounded-full bg-white/95 px-4 py-2 text-xs uppercase tracking-widest text-ink opacity-0 transition group-hover:opacity-100" aria-hidden="true">Ver producto</span>
+              </div>
+              <div class="space-y-2 px-5 py-5">
+                <h3 class="text-lg font-medium">Foulard Opera</h3>
+                <p class="text-sm text-black/60">Panuelo de seda con estampado abstracto</p>
+                <p class="text-base font-semibold">EUR 89</p>
+              </div>
+            </a>
+          </article>
+
+          <article class="group overflow-hidden rounded-2xl border border-black/10 bg-white shadow-soft transition duration-300 hover:-translate-y-1 hover:shadow-xl" role="listitem" data-category="camisas" data-sizes="xs,s,m,l">
+            <a href="#" class="block" aria-label="Ver detalle de Blusa Concorde, EUR 159">
+              <div class="relative aspect-[4/5] overflow-hidden">
+                <img src="imagenes/imagen1.png" alt="" class="h-full w-full object-cover transition duration-500 group-hover:scale-105" loading="lazy" />
+                <span class="absolute bottom-4 left-1/2 -translate-x-1/2 rounded-full bg-white/95 px-4 py-2 text-xs uppercase tracking-widest text-ink opacity-0 transition group-hover:opacity-100" aria-hidden="true">Ver producto</span>
+              </div>
+              <div class="space-y-2 px-5 py-5">
+                <h3 class="text-lg font-medium">Blusa Concorde</h3>
+                <p class="text-sm text-black/60">Blusa de seda con cuello lazo</p>
+                <p class="text-base font-semibold">EUR 159</p>
+              </div>
+            </a>
+          </article>
+
+          <article class="group overflow-hidden rounded-2xl border border-black/10 bg-white shadow-soft transition duration-300 hover:-translate-y-1 hover:shadow-xl" role="listitem" data-category="vestidos" data-sizes="s,m,l">
+            <a href="#" class="block" aria-label="Ver detalle de Vestido Champs, EUR 249">
+              <div class="relative aspect-[4/5] overflow-hidden">
+                <img src="imagenes/imagen5.png" alt="" class="h-full w-full object-cover transition duration-500 group-hover:scale-105" loading="lazy" />
+                <span class="absolute bottom-4 left-1/2 -translate-x-1/2 rounded-full bg-white/95 px-4 py-2 text-xs uppercase tracking-widest text-ink opacity-0 transition group-hover:opacity-100" aria-hidden="true">Ver producto</span>
+              </div>
+              <div class="space-y-2 px-5 py-5">
+                <h3 class="text-lg font-medium">Vestido Champs</h3>
+                <p class="text-sm text-black/60">Vestido camisero de popelin</p>
+                <p class="text-base font-semibold">EUR 249</p>
+              </div>
+            </a>
+          </article>
+
+          <article class="group overflow-hidden rounded-2xl border border-black/10 bg-white shadow-soft transition duration-300 hover:-translate-y-1 hover:shadow-xl" role="listitem" data-category="pantalones" data-sizes="s,m,l,xl">
+            <a href="#" class="block" aria-label="Ver detalle de Pantalon Vendome, EUR 179">
+              <div class="relative aspect-[4/5] overflow-hidden">
+                <img src="imagenes/imagen3.png" alt="" class="h-full w-full object-cover transition duration-500 group-hover:scale-105" loading="lazy" />
+                <span class="absolute bottom-4 left-1/2 -translate-x-1/2 rounded-full bg-white/95 px-4 py-2 text-xs uppercase tracking-widest text-ink opacity-0 transition group-hover:opacity-100" aria-hidden="true">Ver producto</span>
+              </div>
+              <div class="space-y-2 px-5 py-5">
+                <h3 class="text-lg font-medium">Pantalon Vendome</h3>
+                <p class="text-sm text-black/60">Pantalon slim de gabardina stretch</p>
+                <p class="text-base font-semibold">EUR 179</p>
+              </div>
+            </a>
+          </article>
+
+          <article class="group overflow-hidden rounded-2xl border border-black/10 bg-white shadow-soft transition duration-300 hover:-translate-y-1 hover:shadow-xl" role="listitem" data-category="abrigos" data-sizes="m,l,xl">
+            <a href="#" class="block" aria-label="Ver detalle de Chaqueton Invalides, EUR 389">
+              <div class="relative aspect-[4/5] overflow-hidden">
+                <img src="imagenes/imagen6.png" alt="" class="h-full w-full object-cover transition duration-500 group-hover:scale-105" loading="lazy" />
+                <span class="absolute bottom-4 left-1/2 -translate-x-1/2 rounded-full bg-white/95 px-4 py-2 text-xs uppercase tracking-widest text-ink opacity-0 transition group-hover:opacity-100" aria-hidden="true">Ver producto</span>
+              </div>
+              <div class="space-y-2 px-5 py-5">
+                <h3 class="text-lg font-medium">Chaqueton Invalides</h3>
+                <p class="text-sm text-black/60">Chaqueton cruzado de pano grueso</p>
+                <p class="text-base font-semibold">EUR 389</p>
+              </div>
+            </a>
+          </article>
+
+          <article class="group overflow-hidden rounded-2xl border border-black/10 bg-white shadow-soft transition duration-300 hover:-translate-y-1 hover:shadow-xl" role="listitem" data-category="calzado" data-sizes="s,m,l,xl">
+            <a href="#" class="block" aria-label="Ver detalle de Mocasin Madeleine, EUR 199">
+              <div class="relative aspect-[4/5] overflow-hidden">
+                <img src="imagenes/imagen7.png" alt="" class="h-full w-full object-cover transition duration-500 group-hover:scale-105" loading="lazy" />
+                <span class="absolute bottom-4 left-1/2 -translate-x-1/2 rounded-full bg-white/95 px-4 py-2 text-xs uppercase tracking-widest text-ink opacity-0 transition group-hover:opacity-100" aria-hidden="true">Ver producto</span>
+              </div>
+              <div class="space-y-2 px-5 py-5">
+                <h3 class="text-lg font-medium">Mocasin Madeleine</h3>
+                <p class="text-sm text-black/60">Mocasin de ante con suela de cuero</p>
+                <p class="text-base font-semibold">EUR 199</p>
+              </div>
+            </a>
+          </article>
+
+          <article class="group overflow-hidden rounded-2xl border border-black/10 bg-white shadow-soft transition duration-300 hover:-translate-y-1 hover:shadow-xl" role="listitem" data-category="accesorios" data-sizes="xs,s,m,l,xl">
+            <a href="#" class="block" aria-label="Ver detalle de Cinturon Etoile, EUR 109">
+              <div class="relative aspect-[4/5] overflow-hidden">
+                <img src="imagenes/imagen4.png" alt="" class="h-full w-full object-cover transition duration-500 group-hover:scale-105" loading="lazy" />
+                <span class="absolute bottom-4 left-1/2 -translate-x-1/2 rounded-full bg-white/95 px-4 py-2 text-xs uppercase tracking-widest text-ink opacity-0 transition group-hover:opacity-100" aria-hidden="true">Ver producto</span>
+              </div>
+              <div class="space-y-2 px-5 py-5">
+                <h3 class="text-lg font-medium">Cinturon Etoile</h3>
+                <p class="text-sm text-black/60">Cinturon de cuero con hebilla dorada</p>
+                <p class="text-base font-semibold">EUR 109</p>
+              </div>
+            </a>
           </article>
         </div>
+
+        <!-- Schema.org structured data -->
+        <script type="application/ld+json">
+        {
+          "@context": "https://schema.org",
+          "@type": "BreadcrumbList",
+          "itemListElement": [
+            { "@type": "ListItem", "position": 1, "name": "Inicio", "item": "https://maisonlumiere.fr/" },
+            { "@type": "ListItem", "position": 2, "name": "Catalogo", "item": "https://maisonlumiere.fr/catalogo" }
+          ]
+        }
+        </script>
+        <script type="application/ld+json">
+        {
+          "@context": "https://schema.org",
+          "@type": "ItemList",
+          "name": "Catalogo Maison Lumiere",
+          "numberOfItems": 20,
+          "itemListElement": [
+            { "@type": "ListItem", "position": 1, "item": { "@type": "Product", "name": "Vestido Noire", "description": "Vestido midi de linea minimalista", "offers": { "@type": "Offer", "price": "189", "priceCurrency": "EUR" } } },
+            { "@type": "ListItem", "position": 2, "item": { "@type": "Product", "name": "Blazer Rivoli", "description": "Chaqueta estructurada para hombre", "offers": { "@type": "Offer", "price": "279", "priceCurrency": "EUR" } } },
+            { "@type": "ListItem", "position": 3, "item": { "@type": "Product", "name": "Oxford Signature", "description": "Zapatos de cuero estilo clasico", "offers": { "@type": "Offer", "price": "239", "priceCurrency": "EUR" } } },
+            { "@type": "ListItem", "position": 4, "item": { "@type": "Product", "name": "Gafas Lumiere", "description": "Montura fina estilo moderno", "offers": { "@type": "Offer", "price": "129", "priceCurrency": "EUR" } } },
+            { "@type": "ListItem", "position": 5, "item": { "@type": "Product", "name": "Camisa Atelier", "description": "Camisa premium de corte relajado", "offers": { "@type": "Offer", "price": "149", "priceCurrency": "EUR" } } },
+            { "@type": "ListItem", "position": 6, "item": { "@type": "Product", "name": "Abrigo Rive Gauche", "description": "Abrigo largo de lana premium", "offers": { "@type": "Offer", "price": "329", "priceCurrency": "EUR" } } },
+            { "@type": "ListItem", "position": 7, "item": { "@type": "Product", "name": "Pantalon Palais", "description": "Pantalon sastre de fit recto", "offers": { "@type": "Offer", "price": "169", "priceCurrency": "EUR" } } },
+            { "@type": "ListItem", "position": 8, "item": { "@type": "Product", "name": "Bolso Marais", "description": "Bolso de cuero negro minimalista", "offers": { "@type": "Offer", "price": "229", "priceCurrency": "EUR" } } },
+            { "@type": "ListItem", "position": 9, "item": { "@type": "Product", "name": "Vestido Sorbonne", "description": "Vestido largo con caida fluida", "offers": { "@type": "Offer", "price": "219", "priceCurrency": "EUR" } } },
+            { "@type": "ListItem", "position": 10, "item": { "@type": "Product", "name": "Camisa Montmartre", "description": "Camisa oversize de algodon organico", "offers": { "@type": "Offer", "price": "139", "priceCurrency": "EUR" } } },
+            { "@type": "ListItem", "position": 11, "item": { "@type": "Product", "name": "Pantalon Tuileries", "description": "Pantalon wide-leg de tiro alto", "offers": { "@type": "Offer", "price": "189", "priceCurrency": "EUR" } } },
+            { "@type": "ListItem", "position": 12, "item": { "@type": "Product", "name": "Trench Bastille", "description": "Trench coat impermeable con cinturon", "offers": { "@type": "Offer", "price": "359", "priceCurrency": "EUR" } } },
+            { "@type": "ListItem", "position": 13, "item": { "@type": "Product", "name": "Botin Saint-Germain", "description": "Botin chelsea de cuero liso", "offers": { "@type": "Offer", "price": "269", "priceCurrency": "EUR" } } },
+            { "@type": "ListItem", "position": 14, "item": { "@type": "Product", "name": "Foulard Opera", "description": "Panuelo de seda con estampado abstracto", "offers": { "@type": "Offer", "price": "89", "priceCurrency": "EUR" } } },
+            { "@type": "ListItem", "position": 15, "item": { "@type": "Product", "name": "Blusa Concorde", "description": "Blusa de seda con cuello lazo", "offers": { "@type": "Offer", "price": "159", "priceCurrency": "EUR" } } },
+            { "@type": "ListItem", "position": 16, "item": { "@type": "Product", "name": "Vestido Champs", "description": "Vestido camisero de popelin", "offers": { "@type": "Offer", "price": "249", "priceCurrency": "EUR" } } },
+            { "@type": "ListItem", "position": 17, "item": { "@type": "Product", "name": "Pantalon Vendome", "description": "Pantalon slim de gabardina stretch", "offers": { "@type": "Offer", "price": "179", "priceCurrency": "EUR" } } },
+            { "@type": "ListItem", "position": 18, "item": { "@type": "Product", "name": "Chaqueton Invalides", "description": "Chaqueton cruzado de pano grueso", "offers": { "@type": "Offer", "price": "389", "priceCurrency": "EUR" } } },
+            { "@type": "ListItem", "position": 19, "item": { "@type": "Product", "name": "Mocasin Madeleine", "description": "Mocasin de ante con suela de cuero", "offers": { "@type": "Offer", "price": "199", "priceCurrency": "EUR" } } },
+            { "@type": "ListItem", "position": 20, "item": { "@type": "Product", "name": "Cinturon Etoile", "description": "Cinturon de cuero con hebilla dorada", "offers": { "@type": "Offer", "price": "109", "priceCurrency": "EUR" } } }
+          ]
+        }
+        </script>
       </section>
 
       <section class="mx-auto mt-12 max-w-7xl px-4 pb-16 sm:px-6 lg:px-8 lg:pb-20">
@@ -402,6 +726,43 @@
         menuButton.setAttribute("aria-expanded", String(!expanded));
         mobileMenu.classList.toggle("hidden");
       });
+
+      // Catalog filters
+      (function () {
+        const categoryFilter = document.getElementById("filter-category");
+        const sizeFilter = document.getElementById("filter-size");
+        const grid = document.getElementById("catalog-grid");
+        const countDisplay = document.getElementById("filter-results-count");
+
+        function applyFilters() {
+          const category = categoryFilter.value;
+          const size = sizeFilter.value;
+          const items = grid.querySelectorAll("[role='listitem']");
+          let visible = 0;
+
+          items.forEach(function (item) {
+            const itemCategory = item.getAttribute("data-category");
+            const itemSizes = item.getAttribute("data-sizes").split(",");
+            const matchCategory = category === "all" || itemCategory === category;
+            const matchSize = size === "all" || itemSizes.includes(size);
+
+            if (matchCategory && matchSize) {
+              item.classList.remove("hidden");
+              visible++;
+            } else {
+              item.classList.add("hidden");
+            }
+          });
+
+          countDisplay.textContent =
+            visible === 0
+              ? "No se encontraron productos"
+              : "Mostrando " + visible + (visible === 1 ? " producto" : " productos");
+        }
+
+        categoryFilter.addEventListener("change", applyFilters);
+        sizeFilter.addEventListener("change", applyFilters);
+      })();
     </script>
   </body>
 </html>
