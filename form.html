@@ -1,0 +1,385 @@
+<!doctype html>
+<html lang="es" itemscope itemtype="https://schema.org/WebPage">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Checkout | Maison Lumiere</title>
+    <meta
+      name="description"
+      content="Completa tu compra en Maison Lumiere. Formulario de pago seguro para tu pedido de moda premium francesa."
+    />
+    <meta name="robots" content="noindex, nofollow" />
+    <meta name="theme-color" content="#f5f2ed" />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            colors: {
+              cream: "#f5f2ed",
+              ink: "#1f1f1f",
+              sand: "#d7cfc3",
+              stone: "#ede9e2"
+            },
+            fontFamily: {
+              serifDisplay: ["Georgia", "Times New Roman", "serif"],
+              sansBody: ["ui-sans-serif", "system-ui", "Segoe UI", "sans-serif"]
+            },
+            boxShadow: {
+              soft: "0 12px 30px rgba(15, 15, 15, 0.08)"
+            }
+          }
+        }
+      };
+    </script>
+  </head>
+  <body class="bg-cream text-ink font-sansBody antialiased min-h-screen flex flex-col">
+    <!-- Header -->
+    <header class="sticky top-0 z-50 border-b border-black/10 bg-cream/95 backdrop-blur">
+      <nav class="mx-auto flex max-w-7xl items-center justify-between px-4 py-4 sm:px-6 lg:px-8" aria-label="Navegacion principal">
+        <a href="index.html" class="text-xl font-serifDisplay tracking-[0.2em] uppercase" aria-label="Volver a la pagina principal de Maison Lumiere">Maison Lumiere</a>
+        <a href="index.html" class="text-sm uppercase tracking-widest text-black/70 transition hover:text-ink" aria-label="Volver a la tienda">
+          Volver a la tienda
+        </a>
+      </nav>
+    </header>
+
+    <!-- Main content -->
+    <main class="flex-1 mx-auto w-full max-w-3xl px-4 py-10 sm:px-6 lg:px-8 lg:py-16" itemscope itemtype="https://schema.org/CheckoutPage">
+      <section aria-labelledby="checkout-heading">
+        <h1 id="checkout-heading" class="font-serifDisplay text-3xl sm:text-4xl text-center mb-2" itemprop="name">Formulario de pago</h1>
+        <p class="text-center text-black/60 text-sm mb-10">Completa los siguientes pasos para finalizar tu compra</p>
+
+        <!-- Progress bar -->
+        <div class="mb-10" role="progressbar" aria-valuenow="33" aria-valuemin="0" aria-valuemax="100" aria-label="Progreso del formulario" id="progressBar">
+          <div class="flex items-center justify-between mb-2">
+            <span id="stepLabel" class="text-xs uppercase tracking-widest text-black/60">Paso 1 de 3</span>
+            <span id="percentLabel" class="text-xs font-medium text-black/60">33%</span>
+          </div>
+          <div class="h-2 w-full rounded-full bg-sand/60 overflow-hidden">
+            <div id="progressFill" class="h-full rounded-full bg-ink transition-all duration-500 ease-out" style="width: 33%"></div>
+          </div>
+          <!-- Step indicators -->
+          <ol class="mt-4 grid grid-cols-3 gap-2 text-center text-xs uppercase tracking-wider" aria-label="Pasos del formulario">
+            <li id="indicator1" class="font-medium text-ink">
+              <span class="block w-8 h-8 mx-auto mb-1 rounded-full bg-ink text-white flex items-center justify-center text-sm" aria-hidden="true">1</span>
+              Datos personales
+            </li>
+            <li id="indicator2" class="text-black/40">
+              <span class="block w-8 h-8 mx-auto mb-1 rounded-full bg-sand/60 text-black/50 flex items-center justify-center text-sm" aria-hidden="true">2</span>
+              Direccion
+            </li>
+            <li id="indicator3" class="text-black/40">
+              <span class="block w-8 h-8 mx-auto mb-1 rounded-full bg-sand/60 text-black/50 flex items-center justify-center text-sm" aria-hidden="true">3</span>
+              Pago
+            </li>
+          </ol>
+        </div>
+
+        <!-- Form -->
+        <form id="checkoutForm" novalidate class="rounded-3xl border border-black/10 bg-white shadow-soft p-6 sm:p-10" aria-label="Formulario de checkout">
+
+          <!-- Step 1: Personal data -->
+          <fieldset id="step1" class="step" role="group" aria-labelledby="step1-legend">
+            <legend id="step1-legend" class="font-serifDisplay text-2xl mb-6">Datos personales</legend>
+
+            <div class="grid gap-5 sm:grid-cols-2">
+              <div>
+                <label for="firstName" class="block text-sm font-medium mb-1">Nombre <span class="text-red-500" aria-hidden="true">*</span></label>
+                <input
+                  type="text"
+                  id="firstName"
+                  name="firstName"
+                  required
+                  autocomplete="given-name"
+                  aria-required="true"
+                  placeholder="Ej: Marie"
+                  class="w-full rounded-full border border-black/15 bg-cream/40 px-5 py-3 text-sm placeholder:text-black/40 focus:border-ink focus:outline-none transition"
+                />
+                <span class="error-msg hidden text-xs text-red-600 mt-1" aria-live="polite">Este campo es obligatorio</span>
+              </div>
+
+              <div>
+                <label for="lastName" class="block text-sm font-medium mb-1">Apellido <span class="text-red-500" aria-hidden="true">*</span></label>
+                <input
+                  type="text"
+                  id="lastName"
+                  name="lastName"
+                  required
+                  autocomplete="family-name"
+                  aria-required="true"
+                  placeholder="Ej: Dupont"
+                  class="w-full rounded-full border border-black/15 bg-cream/40 px-5 py-3 text-sm placeholder:text-black/40 focus:border-ink focus:outline-none transition"
+                />
+                <span class="error-msg hidden text-xs text-red-600 mt-1" aria-live="polite">Este campo es obligatorio</span>
+              </div>
+            </div>
+
+            <div class="mt-5">
+              <label for="email" class="block text-sm font-medium mb-1">Correo electronico <span class="text-red-500" aria-hidden="true">*</span></label>
+              <input
+                type="email"
+                id="email"
+                name="email"
+                required
+                autocomplete="email"
+                aria-required="true"
+                placeholder="correo@ejemplo.com"
+                class="w-full rounded-full border border-black/15 bg-cream/40 px-5 py-3 text-sm placeholder:text-black/40 focus:border-ink focus:outline-none transition"
+              />
+              <span class="error-msg hidden text-xs text-red-600 mt-1" aria-live="polite">Introduce un correo electronico valido</span>
+            </div>
+
+            <div class="mt-5">
+              <label for="phone" class="block text-sm font-medium mb-1">Telefono <span class="text-red-500" aria-hidden="true">*</span></label>
+              <input
+                type="tel"
+                id="phone"
+                name="phone"
+                required
+                autocomplete="tel"
+                aria-required="true"
+                placeholder="+33 6 12 34 56 78"
+                pattern="[+]?[0-9\s\-]{7,15}"
+                class="w-full rounded-full border border-black/15 bg-cream/40 px-5 py-3 text-sm placeholder:text-black/40 focus:border-ink focus:outline-none transition"
+              />
+              <span class="error-msg hidden text-xs text-red-600 mt-1" aria-live="polite">Introduce un numero de telefono valido</span>
+            </div>
+          </fieldset>
+
+          <!-- Step 2: Shipping address -->
+          <fieldset id="step2" class="step hidden" role="group" aria-labelledby="step2-legend">
+            <legend id="step2-legend" class="font-serifDisplay text-2xl mb-6">Direccion de entrega</legend>
+
+            <div class="grid gap-5">
+              <div>
+                <label for="address" class="block text-sm font-medium mb-1">Direccion <span class="text-red-500" aria-hidden="true">*</span></label>
+                <input
+                  type="text"
+                  id="address"
+                  name="address"
+                  required
+                  autocomplete="street-address"
+                  aria-required="true"
+                  placeholder="Calle, numero, piso"
+                  class="w-full rounded-full border border-black/15 bg-cream/40 px-5 py-3 text-sm placeholder:text-black/40 focus:border-ink focus:outline-none transition"
+                />
+                <span class="error-msg hidden text-xs text-red-600 mt-1" aria-live="polite">Este campo es obligatorio</span>
+              </div>
+
+              <div class="grid gap-5 sm:grid-cols-2">
+                <div>
+                  <label for="city" class="block text-sm font-medium mb-1">Ciudad <span class="text-red-500" aria-hidden="true">*</span></label>
+                  <input
+                    type="text"
+                    id="city"
+                    name="city"
+                    required
+                    autocomplete="address-level2"
+                    aria-required="true"
+                    placeholder="Ej: Paris"
+                    class="w-full rounded-full border border-black/15 bg-cream/40 px-5 py-3 text-sm placeholder:text-black/40 focus:border-ink focus:outline-none transition"
+                  />
+                  <span class="error-msg hidden text-xs text-red-600 mt-1" aria-live="polite">Este campo es obligatorio</span>
+                </div>
+
+                <div>
+                  <label for="postalCode" class="block text-sm font-medium mb-1">Codigo postal <span class="text-red-500" aria-hidden="true">*</span></label>
+                  <input
+                    type="text"
+                    id="postalCode"
+                    name="postalCode"
+                    required
+                    autocomplete="postal-code"
+                    aria-required="true"
+                    placeholder="Ej: 75001"
+                    pattern="[0-9]{4,10}"
+                    class="w-full rounded-full border border-black/15 bg-cream/40 px-5 py-3 text-sm placeholder:text-black/40 focus:border-ink focus:outline-none transition"
+                  />
+                  <span class="error-msg hidden text-xs text-red-600 mt-1" aria-live="polite">Introduce un codigo postal valido</span>
+                </div>
+              </div>
+
+              <div class="grid gap-5 sm:grid-cols-2">
+                <div>
+                  <label for="province" class="block text-sm font-medium mb-1">Provincia / Region</label>
+                  <input
+                    type="text"
+                    id="province"
+                    name="province"
+                    autocomplete="address-level1"
+                    placeholder="Ej: Ile-de-France"
+                    class="w-full rounded-full border border-black/15 bg-cream/40 px-5 py-3 text-sm placeholder:text-black/40 focus:border-ink focus:outline-none transition"
+                  />
+                </div>
+
+                <div>
+                  <label for="country" class="block text-sm font-medium mb-1">Pais <span class="text-red-500" aria-hidden="true">*</span></label>
+                  <select
+                    id="country"
+                    name="country"
+                    required
+                    autocomplete="country"
+                    aria-required="true"
+                    class="w-full rounded-full border border-black/15 bg-cream/40 px-5 py-3 text-sm text-ink focus:border-ink focus:outline-none transition appearance-none"
+                  >
+                    <option value="">Seleccionar pais</option>
+                    <option value="FR">Francia</option>
+                    <option value="ES">Espana</option>
+                    <option value="IT">Italia</option>
+                    <option value="DE">Alemania</option>
+                    <option value="PT">Portugal</option>
+                    <option value="UK">Reino Unido</option>
+                    <option value="US">Estados Unidos</option>
+                    <option value="AR">Argentina</option>
+                    <option value="MX">Mexico</option>
+                    <option value="CO">Colombia</option>
+                  </select>
+                  <span class="error-msg hidden text-xs text-red-600 mt-1" aria-live="polite">Selecciona un pais</span>
+                </div>
+              </div>
+            </div>
+          </fieldset>
+
+          <!-- Step 3: Card payment -->
+          <fieldset id="step3" class="step hidden" role="group" aria-labelledby="step3-legend">
+            <legend id="step3-legend" class="font-serifDisplay text-2xl mb-6">Pago con tarjeta</legend>
+
+            <div class="grid gap-5">
+              <div>
+                <label for="cardHolder" class="block text-sm font-medium mb-1">Titular de la tarjeta <span class="text-red-500" aria-hidden="true">*</span></label>
+                <input
+                  type="text"
+                  id="cardHolder"
+                  name="cardHolder"
+                  required
+                  autocomplete="cc-name"
+                  aria-required="true"
+                  placeholder="Nombre como aparece en la tarjeta"
+                  class="w-full rounded-full border border-black/15 bg-cream/40 px-5 py-3 text-sm placeholder:text-black/40 focus:border-ink focus:outline-none transition"
+                />
+                <span class="error-msg hidden text-xs text-red-600 mt-1" aria-live="polite">Este campo es obligatorio</span>
+              </div>
+
+              <div>
+                <label for="cardNumber" class="block text-sm font-medium mb-1">Numero de tarjeta <span class="text-red-500" aria-hidden="true">*</span></label>
+                <input
+                  type="text"
+                  id="cardNumber"
+                  name="cardNumber"
+                  required
+                  autocomplete="cc-number"
+                  aria-required="true"
+                  placeholder="1234 5678 9012 3456"
+                  pattern="[0-9\s]{13,19}"
+                  inputmode="numeric"
+                  maxlength="19"
+                  class="w-full rounded-full border border-black/15 bg-cream/40 px-5 py-3 text-sm placeholder:text-black/40 focus:border-ink focus:outline-none transition"
+                />
+                <span class="error-msg hidden text-xs text-red-600 mt-1" aria-live="polite">Introduce un numero de tarjeta valido</span>
+              </div>
+
+              <div class="grid gap-5 sm:grid-cols-2">
+                <div>
+                  <label for="cardExpiry" class="block text-sm font-medium mb-1">Fecha de expiracion <span class="text-red-500" aria-hidden="true">*</span></label>
+                  <input
+                    type="text"
+                    id="cardExpiry"
+                    name="cardExpiry"
+                    required
+                    autocomplete="cc-exp"
+                    aria-required="true"
+                    placeholder="MM/AA"
+                    pattern="(0[1-9]|1[0-2])\/[0-9]{2}"
+                    maxlength="5"
+                    class="w-full rounded-full border border-black/15 bg-cream/40 px-5 py-3 text-sm placeholder:text-black/40 focus:border-ink focus:outline-none transition"
+                  />
+                  <span class="error-msg hidden text-xs text-red-600 mt-1" aria-live="polite">Formato: MM/AA</span>
+                </div>
+
+                <div>
+                  <label for="cardCVV" class="block text-sm font-medium mb-1">CVV <span class="text-red-500" aria-hidden="true">*</span></label>
+                  <input
+                    type="text"
+                    id="cardCVV"
+                    name="cardCVV"
+                    required
+                    autocomplete="cc-csc"
+                    aria-required="true"
+                    placeholder="123"
+                    pattern="[0-9]{3,4}"
+                    inputmode="numeric"
+                    maxlength="4"
+                    class="w-full rounded-full border border-black/15 bg-cream/40 px-5 py-3 text-sm placeholder:text-black/40 focus:border-ink focus:outline-none transition"
+                  />
+                  <span class="error-msg hidden text-xs text-red-600 mt-1" aria-live="polite">Introduce el codigo de seguridad (3-4 digitos)</span>
+                </div>
+              </div>
+            </div>
+
+            <!-- Security note -->
+            <div class="mt-6 flex items-start gap-3 rounded-2xl bg-stone/60 border border-black/5 px-5 py-4">
+              <svg class="h-5 w-5 text-black/50 mt-0.5 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M16.5 10.5V6.75a4.5 4.5 0 10-9 0v3.75m-.75 11.25h10.5a2.25 2.25 0 002.25-2.25v-6.75a2.25 2.25 0 00-2.25-2.25H6.75a2.25 2.25 0 00-2.25 2.25v6.75a2.25 2.25 0 002.25 2.25z" />
+              </svg>
+              <p class="text-xs text-black/60">Este es un formulario de demostracion. No se procesara ningun pago real ni se almacenaran datos de tarjeta.</p>
+            </div>
+          </fieldset>
+
+          <!-- Navigation buttons -->
+          <div class="mt-8 flex flex-col-reverse gap-3 sm:flex-row sm:justify-between" role="group" aria-label="Navegacion entre pasos">
+            <button
+              type="button"
+              id="btnBack"
+              class="hidden rounded-full border border-ink px-7 py-3 text-sm uppercase tracking-widest transition hover:bg-ink hover:text-white focus:outline-none focus:ring-2 focus:ring-ink focus:ring-offset-2"
+              aria-label="Ir al paso anterior"
+            >
+              Atras
+            </button>
+
+            <button
+              type="button"
+              id="btnNext"
+              class="rounded-full bg-ink px-7 py-3 text-sm uppercase tracking-widest text-white transition hover:bg-black focus:outline-none focus:ring-2 focus:ring-ink focus:ring-offset-2 sm:ml-auto"
+              aria-label="Ir al siguiente paso"
+            >
+              Siguiente
+            </button>
+
+            <button
+              type="submit"
+              id="btnSubmit"
+              class="hidden rounded-full bg-ink px-7 py-3 text-sm uppercase tracking-widest text-white transition hover:bg-black focus:outline-none focus:ring-2 focus:ring-ink focus:ring-offset-2 sm:ml-auto"
+              aria-label="Enviar formulario de pago"
+            >
+              Confirmar pedido
+            </button>
+          </div>
+        </form>
+
+        <!-- Success message (hidden by default) -->
+        <div id="successMessage" class="hidden mt-8 rounded-3xl border border-black/10 bg-white shadow-soft p-10 text-center" role="alert" aria-live="assertive">
+          <svg class="mx-auto h-16 w-16 text-green-600 mb-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M9 12.75L11.25 15 15 9.75M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+          </svg>
+          <h2 class="font-serifDisplay text-2xl sm:text-3xl mb-2">Pedido confirmado</h2>
+          <p class="text-black/60 text-sm">Gracias por tu compra. Recibiras un email de confirmacion en breve.</p>
+          <a href="index.html" class="mt-6 inline-block rounded-full bg-ink px-7 py-3 text-sm uppercase tracking-widest text-white transition hover:bg-black">
+            Volver a la tienda
+          </a>
+        </div>
+      </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-ink text-white mt-auto">
+      <div class="mx-auto max-w-7xl px-4 py-8 sm:px-6 lg:px-8">
+        <p class="text-center text-xs uppercase tracking-[0.18em] text-white/60">
+          Copyright 2026 Maison Lumiere. Todos los derechos reservados.
+        </p>
+      </div>
+    </footer>
+
+    <script src="form.js"></script>
+  </body>
+</html>
